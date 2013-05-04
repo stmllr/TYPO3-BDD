@@ -1,0 +1,25 @@
+# behat.yml
+default:
+  extensions:
+    Behat\MinkExtension\Extension:
+      base_url: http://intro62.dev
+      default_session: goutte
+      javascript_session: selenium2
+      #browser_name: firefox
+      browser_name: chrome
+      goutte: ~
+      selenium2:
+        #wd_host: http://localhost:4444/wd/hub
+        capabilities: { "browser": "chrome", "version": "26" }
+        #capabilities: { "browser": "firefox", "version": "20" }
+      #sahi: ~
+      #zombie: ~
+  context:
+    parameters:
+      paths:
+        backend: /typo3/
+ci:
+  formatter:
+    name:  junit
+    parameters:
+      output_path: /tmp/junit
