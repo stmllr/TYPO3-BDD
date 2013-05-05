@@ -5,20 +5,39 @@ default:
       base_url: http://intro62.dev
       default_session: goutte
       javascript_session: selenium2
-      #browser_name: firefox
-      browser_name: chrome
       goutte: ~
       selenium2:
-        #wd_host: http://localhost:4444/wd/hub
-        capabilities: { "browser": "chrome", "version": "26" }
-        #capabilities: { "browser": "firefox", "version": "20" }
+        wd_host: http://localhost:4444/wd/hub
       #sahi: ~
       #zombie: ~
   context:
     parameters:
       paths:
         backend: /typo3/
+chrome-via-webdriver:
+  extensions:
+    Behat\MinkExtension\Extension:
+      browser_name: chrome
+      selenium2:
+        capabilities: { "browser": "chrome", "version": "*" }
+firefox-via-webdriver:
+  extensions:
+    Behat\MinkExtension\Extension:
+      browser_name: firefox
+      selenium2:
+        capabilities: { "browser": "firefox", "version": "*" }
+phantom-via-webdriver:
+  extensions:
+    Behat\MinkExtension\Extension:
+      browser_name: phantomjs
+      selenium2:
+        capabilities: { "browser": "phantomjs", "version": "*" }
 ci:
+  extensions:
+    Behat\MinkExtension\Extension:
+      browser_name: phantomjs
+      selenium2:
+        capabilities: { "browser": "phantomjs", "version": "*" }
   formatter:
     name:  junit
     parameters:
