@@ -5,6 +5,7 @@ Feature: Login
   I need to be able to login
 
   mink:goutte
+  @useragent
   Scenario: Backend login shows warning if JavaScript is disabled
     Given I am on the backend login page
     Then I should see "Activate JavaScript"

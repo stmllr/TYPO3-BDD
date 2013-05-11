@@ -40,6 +40,18 @@ class FeatureContext extends MinkContext {
 	}
 
 	/**
+	 * Fakes the browser user agent.
+	 *
+	 * This is needed when a scenario for the TYPO3 Backend is executed using goutte driver.
+	 * The TYPO3 Backend throws a RuntimeException with the default goutte user agent.
+	 *
+	 * @BeforeScenario @useragent
+	 */
+	public function fakeUserAgent() {
+		$this->getSession()->setRequestHeader('User-Agent', 'Mozilla');
+	}
+
+	/**
 	 * @Given /^I am on the backend login page$/
 	 */
 	public function iAmOnTheBackendLoginPage() {
