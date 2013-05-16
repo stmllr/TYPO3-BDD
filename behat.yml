@@ -26,12 +26,18 @@ firefox-via-webdriver:
       browser_name: firefox
       selenium2:
         capabilities: { "browser": "firefox", "version": "*" }
-phantom-via-webdriver:
+phantomjs-via-webdriver:
   extensions:
     Behat\MinkExtension\Extension:
       browser_name: phantomjs
       selenium2:
         capabilities: { "browser": "phantomjs", "version": "*" }
+phantomjs-standalone:
+  extensions:
+    Behat\MinkExtension\Extension:
+      selenium2:
+        browser: phantomjs
+        wd_host: http://localhost:8910/wd/hub
 ci:
   extensions:
     Behat\MinkExtension\Extension:
